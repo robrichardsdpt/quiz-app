@@ -7,7 +7,8 @@
 .main-side-bar {
   background: lightcyan;
   height: 100vh;
+  padding: 16px;
 }
 .main-quiz-content {
-  margin-top: 16px;
+  margin: 16px auto;
 }
