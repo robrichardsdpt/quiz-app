@@ -1,8 +1,12 @@
 import React from 'react'
+import './question.scss'
 
-const Question = () => {
+const Question = ({ randomCountry, options }) => {
+  console.log(randomCountry)
   return(
-    <div>here is your question</div>
+    <div className='question-card'>
+      <img src={randomCountry.flag} className='flag-image'/>
+    </div>
   )
 }
 
