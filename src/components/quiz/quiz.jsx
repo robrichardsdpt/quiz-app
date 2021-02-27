@@ -5,6 +5,7 @@ import Question from '../question/question.jsx'
 const Quiz = () => {
   const [countries, setCountries] = useState()
   const [randomCountry, setRandomCountry] = useState()
+  const [options, setOptions] = useState()
   
   useEffect(()=> {
     axios({
@@ -15,14 +16,26 @@ const Quiz = () => {
     .then(() => {
       return Math.floor(Math.random() * 250)
     })
-    .then((number) => setRandomCountry(number))
+    .then((number) => {
+      setRandomCountry(number)
+      let i = 0
+      const optionArray = []
+      while(i < 3) {
+        const optionNumber = Math.floor(Math.random() * 250)
+        if(number !== optionNumber){
+        optionArray.push(optionNumber)
+        i++
+      }
+      }
+      setOptions([...optionArray, number])
+    })
   }, [])
-  
-  
-  console.log(countries)
+
+
+  console.log(options)
   return (
     <div>Here is your quiz
-    {randomCountry && <Question randomCountry={countries[randomCountry]}/>}
+    {(randomCountry && options) && <Question randomCountry={countries[randomCountry]} options={options} countries={countries}/>}
     </div>
   )
 }
