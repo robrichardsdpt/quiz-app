@@ -4,7 +4,12 @@ import './header.scss'
 const Header = () => {
   return(
     <div className='header-container'>
-      This is the navigation bar
+      <div>This is the navigation bar</div>
+      <div className='link-container'>
+      Link
+      link
+      links
+      </div>
     </div>
   )
 }

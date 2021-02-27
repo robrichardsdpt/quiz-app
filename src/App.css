@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+.main {
+  display: flex;
+}
+.main-side-bar {
+  background: lightcyan;
+  height: 100vh;
+}
+.main-quiz-content {
+  margin-top: 16px;
+}
