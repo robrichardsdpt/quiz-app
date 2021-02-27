@@ -1,13 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
-  const goToQuiz = () => {
-    console.log('quiz')
-  }
+
   return (
     <div>
       Welcome to the THUNDERDOME! <br/>
-      <button onClick={goToQuiz}>Get Quizzin'</button>
+      <Link to='/quiz'><button>Get Quizzin'</button></Link>
     </div>
   )
 }
