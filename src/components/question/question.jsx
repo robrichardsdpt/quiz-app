@@ -34,7 +34,6 @@ const Question = ({ randomCountry, options, countries }) => {
       { (status === 'not answered') && 'What do you think?' }
       { status === 'correct' &&  `You are right!  ${countryResponse} is the correct answer` }
       { status === 'wrong' && `You are wrong! ${countryResponse} is the wrong answer` }
-
     </div>
   )
 }
