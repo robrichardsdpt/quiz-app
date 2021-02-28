@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './question.scss'
 
@@ -15,11 +15,16 @@ export const Question = ({ randomCountry, options, countries, handleSetNextQuest
     if(countries[event.target.id].name === randomCountry.name) {
       setStatus('correct')
       dispatch({ type: 'INCREMENT_NUMBER' })
+      dispatch({ type: 'INCREMENT_STREAK' })
+      dispatch({ type: 'INCREMENT_SCORE' })
     }
-    if(countries[event.target.id].name !==randomCountry.name) setStatus('wrong')
+    if(countries[event.target.id].name !==randomCountry.name) {
+      setStatus('wrong')
+      dispatch({ type: 'DECREMENT_SCORE' })
+      dispatch({ type: 'CLEAR_STREAK' })
+    }
     setCountryResponse(countries[event.target.id].name)
-    dispatch({ type: 'INCREMENT_QUESTION'
-    })
+    dispatch({ type: 'INCREMENT_QUESTION'})
   }
 
   const handleNext = () => {
@@ -45,13 +50,13 @@ export const Question = ({ randomCountry, options, countries, handleSetNextQuest
   return(
     <div className='question-card'>
     Which Country does this flag belong to?
-      <div><img src={randomCountry.flag} className='flag-image'/></div>
+      <div><img src={randomCountry.flag} className='flag-image' alt='flag'/></div>
       { status === 'not answered' && optionsJsx }
       { status === 'correct' &&  `You are right!  ${countryResponse} is the correct answer` }
       { status === 'wrong' && `You are wrong! ${countryResponse} is the wrong answer` }
       { status !== 'not answered' && <div><button onClick={handleNext}>Next Question</button></div>}
       <br/>
-      {correctCounter} / {totalCounter}
+      {correctCounter} correct / {totalCounter} total
     </div>
   )
 }
