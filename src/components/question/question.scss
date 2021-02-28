@@ -8,8 +8,23 @@
   border-radius: 10px;
   padding: 8px;
   width: 400px;
-  background-color: lightblue;
+  background-color: rgba(173, 216, 230, 0.8);
 }
 .option:hover {
   cursor: pointer;
+}
+
+.correct-total-counter {
+  margin-top: 16px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-top: darkgray 2px solid;
+  background: radial-gradient(white, rgba(97, 100, 100, 0.068));
+}
+
+.question {
+  margin: 5px;
+  padding: 5px;
+  background: radial-gradient(white, rgba(97, 100, 100, 0.068));
+  border-bottom: darkgray 2px solid;
 }

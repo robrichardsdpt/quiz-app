@@ -49,14 +49,15 @@ export const Question = ({ randomCountry, options, countries, handleSetNextQuest
   console.log(optionsRandomizedArray)
   return(
     <div className='question-card'>
-    Which Country does this flag belong to?
+      <div className='question'>Which Country does this flag belong to?</div>
       <div><img src={randomCountry.flag} className='flag-image' alt='flag'/></div>
       { status === 'not answered' && optionsJsx }
       { status === 'correct' &&  `You are right!  ${countryResponse} is the correct answer` }
       { status === 'wrong' && `You are wrong! ${countryResponse} is the wrong answer` }
       { status !== 'not answered' && <div><button onClick={handleNext}>Next Question</button></div>}
-      <br/>
-      {correctCounter} correct / {totalCounter} total
+      <div className='correct-total-counter'>
+        {correctCounter} correct / {totalCounter} total
+      </div>
     </div>
   )
 }
