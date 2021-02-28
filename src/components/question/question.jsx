@@ -38,10 +38,10 @@ export const Question = ({ randomCountry, options, countries }) => {
     Which Country does this flag belong to?
       <div><img src={randomCountry.flag} className='flag-image'/></div>
       {status === 'not answered' && optionsJsx}
-      { (status === 'not answered') && 'What do you think?' }
       { status === 'correct' &&  `You are right!  ${countryResponse} is the correct answer` }
       { status === 'wrong' && `You are wrong! ${countryResponse} is the wrong answer` }
-      {counter}
+      <br/>
+      {counter} correct so far!
     </div>
   )
 }

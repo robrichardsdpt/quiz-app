@@ -8,10 +8,7 @@ const Header = () => {
     <div className='header-container'>
       <div>This is the navigation bar</div>
       <div className='link-container'>
-      Link
-      link
-      links
-      {counter}
+        {counter} correct
       </div>
     </div>
   )
