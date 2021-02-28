@@ -1,14 +1,20 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import './question.scss'
 
-const Question = ({ randomCountry, options, countries }) => {
+export const Question = ({ randomCountry, options, countries }) => {
   const [status, setStatus] = useState('not answered')
   const [countryResponse, setCountryResponse] = useState('')
+  const counter = useSelector(state => state.numAnsCorrect.number)
+  const dispatch = useDispatch()
   console.log(randomCountry)
   
   const handleSubmit = (event) => {
     console.log(event.target.id)
-    if(countries[event.target.id].name === randomCountry.name) setStatus('correct')
+    if(countries[event.target.id].name === randomCountry.name) {
+      setStatus('correct')
+      dispatch({ type: 'INCREMENT_NUMBER' })
+    }
     if(countries[event.target.id].name !==randomCountry.name) setStatus('wrong')
     setCountryResponse(countries[event.target.id].name)
   }
@@ -18,6 +24,7 @@ const Question = ({ randomCountry, options, countries }) => {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
   }
+
   return array
   }
   const optionsRandomizedArray = optionsRandomized(options)
@@ -34,6 +41,7 @@ const Question = ({ randomCountry, options, countries }) => {
       { (status === 'not answered') && 'What do you think?' }
       { status === 'correct' &&  `You are right!  ${countryResponse} is the correct answer` }
       { status === 'wrong' && `You are wrong! ${countryResponse} is the wrong answer` }
+      {counter}
     </div>
   )
 }
