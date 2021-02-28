@@ -5,7 +5,8 @@ import './question.scss'
 export const Question = ({ randomCountry, options, countries, handleSetNextQuestion }) => {
   const [status, setStatus] = useState('not answered')
   const [countryResponse, setCountryResponse] = useState('')
-  const counter = useSelector(state => state.numAnsCorrect.number)
+  const correctCounter = useSelector(state => state.numAnsCorrect.number)
+  const totalCounter = useSelector(state => state.stats.totalQuestions)
   const dispatch = useDispatch()
   console.log(randomCountry)
   
@@ -17,6 +18,8 @@ export const Question = ({ randomCountry, options, countries, handleSetNextQuest
     }
     if(countries[event.target.id].name !==randomCountry.name) setStatus('wrong')
     setCountryResponse(countries[event.target.id].name)
+    dispatch({ type: 'INCREMENT_QUESTION'
+    })
   }
 
   const handleNext = () => {
@@ -48,7 +51,7 @@ export const Question = ({ randomCountry, options, countries, handleSetNextQuest
       { status === 'wrong' && `You are wrong! ${countryResponse} is the wrong answer` }
       { status !== 'not answered' && <div><button onClick={handleNext}>Next Question</button></div>}
       <br/>
-      {counter} correct so far!
+      {correctCounter} / {totalCounter}
     </div>
   )
 }
