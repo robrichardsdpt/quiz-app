@@ -6,7 +6,11 @@ const Quiz = () => {
   const [countries, setCountries] = useState()
   const [randomCountry, setRandomCountry] = useState()
   const [options, setOptions] = useState()
+  const [nextQuestion, setNextQuestion] = useState(true)
   
+  const handleSetNextQuestion = () => {
+    setNextQuestion(!nextQuestion)
+  }
   useEffect(()=> {
     axios({
       url: 'https://restcountries.eu/rest/v2/all',
@@ -29,13 +33,13 @@ const Quiz = () => {
       }
       setOptions([...optionArray, number])
     })
-  }, [])
+  }, [nextQuestion])
 
 
   console.log(options)
   return (
     <div>Here is your quiz
-    {(randomCountry && options) && <Question randomCountry={countries[randomCountry]} options={options} countries={countries}/>}
+    {(randomCountry && options) && <Question randomCountry={countries[randomCountry]} options={options} countries={countries} handleSetNextQuestion={handleSetNextQuestion}/>}
     </div>
   )
 }
