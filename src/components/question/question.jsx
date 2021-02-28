@@ -34,9 +34,9 @@ export const Question = ({ randomCountry, options, countries, handleSetNextQuest
   return array
   }
   const optionsRandomizedArray = optionsRandomized(options)
-  const optionsJsx = optionsRandomizedArray.map((country) => {
+  const optionsJsx = optionsRandomizedArray.map((country, index) => {
     return(
-      <div className='option' key={country} id={country} onClick={handleSubmit}>{countries[country].name}</div>)
+      <div className='option' key={country} id={country} onClick={handleSubmit}>{index+1}. {countries[country].name}</div>)
  })
   console.log(optionsRandomizedArray)
   return(

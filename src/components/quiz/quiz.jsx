@@ -38,7 +38,7 @@ const Quiz = () => {
 
   console.log(options)
   return (
-    <div>Here is your quiz
+    <div>NAME THAT FLAG!
     {(randomCountry && options) && <Question randomCountry={countries[randomCountry]} options={options} countries={countries} handleSetNextQuestion={handleSetNextQuestion}/>}
     </div>
   )

@@ -13,7 +13,6 @@ function App() {
       <div className='main'>
         <div className='main-side-bar'><Sidebar/></div>
         <div className='main-quiz-content'>
-          We are clean and good to go!
           <Route exact path='/'component={Home} />
           <Route path='/quiz' component={Quiz} />
         </div>
