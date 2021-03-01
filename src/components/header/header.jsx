@@ -6,8 +6,8 @@ const Header = () => {
   const counter = useSelector(state => state.numAnsCorrect.number)
   return(
     <div className='header-container'>
-      <div>NAME THAT FLAG!</div>
-      <div className='link-container'>
+      <div className='header-title'>NAME THAT FLAG</div>
+      <div className='header-stats'>
         {counter} correct
       </div>
     </div>

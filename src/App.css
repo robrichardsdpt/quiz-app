@@ -3,6 +3,7 @@
 }
 .main {
   display: flex;
+  background: gray;
 }
 .main-side-bar {
   height: 100vh;

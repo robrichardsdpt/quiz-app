@@ -8,10 +8,8 @@ export const Question = ({ randomCountry, options, countries, handleSetNextQuest
   const correctCounter = useSelector(state => state.numAnsCorrect.number)
   const totalCounter = useSelector(state => state.stats.totalQuestions)
   const dispatch = useDispatch()
-  console.log(randomCountry)
-  
+
   const handleSubmit = (event) => {
-    console.log(event.target.id)
     if(countries[event.target.id].name === randomCountry.name) {
       setStatus('correct')
       dispatch({ type: 'INCREMENT_NUMBER' })
@@ -46,7 +44,6 @@ export const Question = ({ randomCountry, options, countries, handleSetNextQuest
     return(
       <div className='option' key={country} id={country} onClick={handleSubmit}>{index+1}. {countries[country].name}</div>)
  })
-  console.log(optionsRandomizedArray)
   return(
     <div className='question-card'>
       <div className='question'>Which Country does this flag belong to?</div>

@@ -33,12 +33,13 @@
 .next-button {
   margin: 10px;
   border: none;
-  background: steelblue;
+  background: darkgray;
   padding: 10px;
-  color: whitesmoke;
+  color: black;
   border-radius: 5px;
 
   &:hover {
     cursor:pointer;
+    background: gray;
   }
 }
