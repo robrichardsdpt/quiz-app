@@ -54,7 +54,7 @@ export const Question = ({ randomCountry, options, countries, handleSetNextQuest
       { status === 'not answered' && optionsJsx }
       { status === 'correct' &&  `You are right!  ${countryResponse} is the correct answer` }
       { status === 'wrong' && `You are wrong! ${countryResponse} is the wrong answer` }
-      { status !== 'not answered' && <div><button onClick={handleNext}>Next Question</button></div>}
+      { status !== 'not answered' && <div><button className='next-button' onClick={handleNext}>Next Question</button></div>}
       <div className='correct-total-counter'>
         {correctCounter} correct / {totalCounter} total
       </div>
